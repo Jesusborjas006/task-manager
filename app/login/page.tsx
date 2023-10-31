@@ -1,10 +1,9 @@
-import Users from "../ui/Users";
+import LoginForm from "../ui/LoginForm";
 
 const Page = () => {
   return (
-    <main>
-      <h3 className="text-center">Select a user</h3>
-      <Users />
+    <main className="flex flex-col items-center justify-center min-h-[80vh]">
+      <LoginForm />
     </main>
   );
 };
