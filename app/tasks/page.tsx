@@ -1,5 +1,11 @@
-const Tasks = () => {
-  return <div></div>;
+import Tasks from "../ui/Tasks";
+
+const Page = () => {
+  return (
+    <div>
+      <Tasks />
+    </div>
+  );
 };
 
-export default Tasks;
+export default Page;
