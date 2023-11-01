@@ -16,7 +16,11 @@ const Tasks = () => {
     />
   ));
 
-  return <div>{taskElements}</div>;
+  return (
+    <div className="px-8 gap-x-5 md:grid grid-cols-2 xl:grid-cols-3">
+      {taskElements}
+    </div>
+  );
 };
 
 export default Tasks;
