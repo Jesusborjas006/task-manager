@@ -17,7 +17,7 @@ const Tasks = () => {
   ));
 
   return (
-    <div className="px-8 gap-x-5 md:grid grid-cols-2 xl:grid-cols-3">
+    <div className="px-8 gap-x-5 md:grid grid-cols-2 xl:grid-cols-3 py-14">
       {taskElements}
     </div>
   );
