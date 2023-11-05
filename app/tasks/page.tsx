@@ -4,15 +4,26 @@ import { useState } from "react";
 import CreateTaskBtn from "../ui/CreateTaskBtn";
 import FormModal from "../ui/FormModal";
 import Tasks from "../ui/Tasks";
+import { tasksData } from "../lib/placeholder-data";
 
 const Page = () => {
+  const [tasks, setTasks] = useState(tasksData);
   const [isCreatingTask, setIsCreatingTask] = useState(false);
+
+  const addNewTask = (newTask: {
+    id: number;
+    title: string;
+    body: string;
+    priority: string;
+  }) => {
+    setTasks([...tasks, newTask]);
+  };
 
   return (
     <div className="relative">
-      {isCreatingTask && <FormModal />}
+      {isCreatingTask && <FormModal addNewTask={addNewTask} />}
       <CreateTaskBtn setIsCreatingTask={setIsCreatingTask} />
-      <Tasks />
+      <Tasks tasks={tasks} />
     </div>
   );
 };
