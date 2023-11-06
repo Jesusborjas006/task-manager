@@ -3,7 +3,6 @@
 import Task from "./Task";
 
 const Tasks = ({ tasks }: any) => {
-  console.log(tasks);
   const taskElements = tasks.map(
     (task: { id: number; title: string; body: string; priority: string }) => (
       <Task
