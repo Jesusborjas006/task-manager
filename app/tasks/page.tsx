@@ -21,8 +21,17 @@ const Page = () => {
 
   return (
     <div className="relative">
-      {isCreatingTask && <FormModal addNewTask={addNewTask} />}
-      <CreateTaskBtn setIsCreatingTask={setIsCreatingTask} />
+      {isCreatingTask && (
+        <FormModal
+          addNewTask={addNewTask}
+          setIsCreatingTask={setIsCreatingTask}
+        />
+      )}
+
+      {!isCreatingTask && (
+        <CreateTaskBtn setIsCreatingTask={setIsCreatingTask} />
+      )}
+
       <Tasks tasks={tasks} />
     </div>
   );

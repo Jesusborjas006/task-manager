@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const FormModal = ({ addNewTask }: any) => {
+const FormModal = ({ addNewTask, setIsCreatingTask }: any) => {
   const [form, setForm] = useState({ title: "", body: "", priority: "low" });
   const [inputsFilled, setInputsFilled] = useState(true);
 
@@ -39,8 +39,16 @@ const FormModal = ({ addNewTask }: any) => {
   };
 
   return (
-    <form className="border w-[400px] mx-auto rounded-xl py-4 px-8">
-      <h3 className="font-semibold text-lg mb-6">Add New Task</h3>
+    <form className="border w-[400px] mx-auto rounded-xl py-4 px-8 ">
+      <div className="flex justify-between items-center mb-6">
+        <h3 className="font-semibold text-xl ">Add New Task</h3>
+        <p
+          className="font-medium text-2xl hover:text-red-500 cursor-pointer"
+          onClick={() => setIsCreatingTask(false)}
+        >
+          X
+        </p>
+      </div>
       <div className="flex flex-col space-y-1 mb-6">
         <label className="font-medium text-sm">Title</label>
         <input
@@ -69,7 +77,7 @@ const FormModal = ({ addNewTask }: any) => {
         Priority
         <select
           name="priority"
-          className="w-full border mb-6 p-1 rounded-md"
+          className="w-full border mb-6 p-2 rounded-md"
           value={form.priority}
           onChange={handlePriority}
         >
