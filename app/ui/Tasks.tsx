@@ -4,12 +4,19 @@ import Task from "./Task";
 
 const Tasks = ({ tasks }: any) => {
   const taskElements = tasks.map(
-    (task: { id: number; title: string; body: string; priority: string }) => (
+    (task: {
+      id: number;
+      title: string;
+      body: string;
+      priority: string;
+      dueDate: string;
+    }) => (
       <Task
         key={task.id}
         title={task.title}
         body={task.body}
         priority={task.priority}
+        dueDate={task.dueDate}
       />
     )
   );

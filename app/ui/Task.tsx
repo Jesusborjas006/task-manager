@@ -2,9 +2,10 @@ type TaskProps = {
   title: string;
   body: string;
   priority: string;
+  dueDate: string;
 };
 
-const Task = ({ title, body, priority }: TaskProps) => {
+const Task = ({ title, body, priority, dueDate }: TaskProps) => {
   const getStyling = () => {
     if (priority === "High") {
       return "bg-red-300 text-red-600";
@@ -23,6 +24,9 @@ const Task = ({ title, body, priority }: TaskProps) => {
         className={`absolute right-[-1px] bottom-[-1px] font-semibold rounded-xl rounded-tr-none rounded-bl-none py-1 px-2 ${getStyling()} text-sm`}
       >
         {priority} priority
+      </p>
+      <p className="absolute bottom-1 font-medium text-[15px] text-gray-700">
+        <span className="">Due:</span> {dueDate}
       </p>
     </div>
   );
