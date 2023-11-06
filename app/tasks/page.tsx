@@ -15,6 +15,7 @@ const Page = () => {
     title: string;
     body: string;
     priority: string;
+    dueDate: string;
   }) => {
     setTasks([...tasks, newTask]);
   };

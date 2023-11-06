@@ -3,7 +3,12 @@
 import { useState } from "react";
 
 const FormModal = ({ addNewTask, setIsCreatingTask }: any) => {
-  const [form, setForm] = useState({ title: "", body: "", priority: "Low" });
+  const [form, setForm] = useState({
+    title: "",
+    body: "",
+    priority: "Low",
+    dueDate: "",
+  });
   const [inputsFilled, setInputsFilled] = useState(true);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,7 +22,7 @@ const FormModal = ({ addNewTask, setIsCreatingTask }: any) => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    if (form.title && form.body) {
+    if (form.title && form.body && form.dueDate) {
       setInputsFilled(true);
 
       const newTask = {
@@ -25,6 +30,7 @@ const FormModal = ({ addNewTask, setIsCreatingTask }: any) => {
         title: form.title,
         body: form.body,
         priority: form.priority,
+        dueDate: form.dueDate,
       };
 
       addNewTask(newTask);
@@ -36,7 +42,7 @@ const FormModal = ({ addNewTask, setIsCreatingTask }: any) => {
   };
 
   const resetInputs = () => {
-    setForm({ title: "", body: "", priority: "Low" });
+    setForm({ title: "", body: "", priority: "Low", dueDate: "" });
   };
 
   return (
@@ -76,7 +82,7 @@ const FormModal = ({ addNewTask, setIsCreatingTask }: any) => {
         </div>
 
         <label className="font-medium text-sm">
-          Priority
+          Priority Status
           <select
             name="priority"
             className="w-full border mb-6 p-2 rounded-md"
@@ -87,6 +93,17 @@ const FormModal = ({ addNewTask, setIsCreatingTask }: any) => {
             <option value="Medium">Medium</option>
             <option value="High">High</option>
           </select>
+        </label>
+
+        <label className="font-medium text-sm">
+          Due Date
+          <input
+            type="date"
+            className="w-full border mb-6 py-1 px-2 rounded-md"
+            name="dueDate"
+            value={form.dueDate}
+            onChange={handleChange}
+          />
         </label>
 
         {!inputsFilled && (
