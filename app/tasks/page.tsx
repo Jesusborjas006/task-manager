@@ -5,6 +5,7 @@ import CreateTaskBtn from "../ui/CreateTaskBtn";
 import FormModal from "../ui/FormModal";
 import Tasks from "../ui/Tasks";
 import { tasksData } from "../lib/placeholder-data";
+import NoTasksMessage from "../ui/NoTasksMessage";
 
 const Page = () => {
   const [tasks, setTasks] = useState(tasksData);
@@ -38,7 +39,11 @@ const Page = () => {
         <CreateTaskBtn setIsCreatingTask={setIsCreatingTask} />
       )}
 
-      <Tasks tasks={tasks} deleteTask={deleteTask} />
+      {tasks.length ? (
+        <Tasks tasks={tasks} deleteTask={deleteTask} />
+      ) : (
+        <NoTasksMessage />
+      )}
     </div>
   );
 };
