@@ -20,6 +20,11 @@ const Page = () => {
     setTasks([...tasks, newTask]);
   };
 
+  const deleteTask = (id: number) => {
+    const filteredTasks = tasks.filter((task) => task.id !== id);
+    setTasks(filteredTasks);
+  };
+
   return (
     <div className="relative">
       {isCreatingTask && (
@@ -33,7 +38,7 @@ const Page = () => {
         <CreateTaskBtn setIsCreatingTask={setIsCreatingTask} />
       )}
 
-      <Tasks tasks={tasks} />
+      <Tasks tasks={tasks} deleteTask={deleteTask} />
     </div>
   );
 };
