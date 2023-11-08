@@ -1,11 +1,20 @@
 type TaskProps = {
+  id: number;
   title: string;
   body: string;
   priority: string;
   dueDate: string;
+  deleteTask: any;
 };
 
-const Task = ({ title, body, priority, dueDate }: TaskProps) => {
+const Task = ({
+  id,
+  title,
+  body,
+  priority,
+  dueDate,
+  deleteTask,
+}: TaskProps) => {
   const getStyling = () => {
     if (priority === "High") {
       return "bg-red-300 text-red-600";
@@ -17,8 +26,16 @@ const Task = ({ title, body, priority, dueDate }: TaskProps) => {
   };
 
   return (
-    <div className="border p-2 px-4 rounded-xl space-y-2 my-6 md:my-3 relative">
-      <h3 className="font-semibold text-lg">{title}</h3>
+    <div className="border py-3 px-4 rounded-xl space-y-2 my-6 md:my-3 relative">
+      <div className="flex justify-between mb-4">
+        <h3 className="font-semibold text-lg">{title}</h3>
+        <p
+          className="font-medium text-xl hover:text-red-500 cursor-pointer"
+          onClick={() => deleteTask(id)}
+        >
+          X
+        </p>
+      </div>
       <p className=" text-gray-700 pb-10">{body}</p>
       <p
         className={`absolute right-[-1px] bottom-[-1px] font-semibold rounded-xl rounded-tr-none rounded-bl-none py-1 px-2 ${getStyling()} text-sm`}

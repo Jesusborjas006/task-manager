@@ -2,7 +2,7 @@
 
 import Task from "./Task";
 
-const Tasks = ({ tasks }: any) => {
+const Tasks = ({ tasks, deleteTask }: any) => {
   const taskElements = tasks.map(
     (task: {
       id: number;
@@ -12,11 +12,13 @@ const Tasks = ({ tasks }: any) => {
       dueDate: string;
     }) => (
       <Task
+        id={task.id}
         key={task.id}
         title={task.title}
         body={task.body}
         priority={task.priority}
         dueDate={task.dueDate}
+        deleteTask={deleteTask}
       />
     )
   );

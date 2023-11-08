@@ -1,10 +1,10 @@
 "use client";
-
 import { useState } from "react";
 import CreateTaskBtn from "../ui/CreateTaskBtn";
 import FormModal from "../ui/FormModal";
 import Tasks from "../ui/Tasks";
 import { tasksData } from "../lib/placeholder-data";
+import NoTasksMessage from "../ui/NoTasksMessage";
 
 const Page = () => {
   const [tasks, setTasks] = useState(tasksData);
@@ -20,6 +20,11 @@ const Page = () => {
     setTasks([...tasks, newTask]);
   };
 
+  const deleteTask = (id: number) => {
+    const filteredTasks = tasks.filter((task) => task.id !== id);
+    setTasks(filteredTasks);
+  };
+
   return (
     <div className="relative">
       {isCreatingTask && (
@@ -33,7 +38,11 @@ const Page = () => {
         <CreateTaskBtn setIsCreatingTask={setIsCreatingTask} />
       )}
 
-      <Tasks tasks={tasks} />
+      {tasks.length ? (
+        <Tasks tasks={tasks} deleteTask={deleteTask} />
+      ) : (
+        <NoTasksMessage />
+      )}
     </div>
   );
 };
