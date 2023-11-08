@@ -86,7 +86,6 @@ const FormModal = ({ addNewTask, setIsCreatingTask }: any) => {
           <select
             name="priority"
             className="w-full border mb-6 p-2 rounded-md"
-            value={form.priority}
             onChange={handlePriority}
           >
             <option value="Low">Low</option>
