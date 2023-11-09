@@ -1,14 +1,17 @@
 "use client";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 import CreateTaskBtn from "../ui/CreateTaskBtn";
 import FormModal from "../ui/FormModal";
 import Tasks from "../ui/Tasks";
 import { tasksData } from "../lib/placeholder-data";
 import NoTasksMessage from "../ui/NoTasksMessage";
+import SortSelect from "../ui/SortSelect";
 
 const Page = () => {
   const [tasks, setTasks] = useState(tasksData);
   const [isCreatingTask, setIsCreatingTask] = useState(false);
+  const [sortBy, setSortBy] = useState("");
 
   const addNewTask = (newTask: {
     id: number;
@@ -33,6 +36,13 @@ const Page = () => {
           setIsCreatingTask={setIsCreatingTask}
         />
       )}
+
+      <SortSelect
+        sortBy={sortBy}
+        setSortBy={setSortBy}
+        tasks={tasks}
+        setTasks={setTasks}
+      />
 
       {!isCreatingTask && (
         <CreateTaskBtn setIsCreatingTask={setIsCreatingTask} />
