@@ -8,8 +8,6 @@ import { tasksData } from "../lib/placeholder-data";
 import NoTasksMessage from "../ui/NoTasksMessage";
 import SortSelect from "../ui/SortSelect";
 
-const priorityArray = ["Low", "Medium", "High"];
-
 const Page = () => {
   const [tasks, setTasks] = useState(tasksData);
   const [isCreatingTask, setIsCreatingTask] = useState(false);
@@ -30,50 +28,6 @@ const Page = () => {
     setTasks(filteredTasks);
   };
 
-  const sortTasks = () => {
-    if (sortBy === "priority") {
-      setTasks(
-        [...tasks].sort((a, b) => {
-          return (
-            priorityArray.indexOf(a.priority) -
-            priorityArray.indexOf(b.priority)
-          );
-        })
-      );
-    } else if (sortBy === "priority2") {
-      setTasks(
-        [...tasks].sort((a, b) => {
-          return (
-            priorityArray.indexOf(b.priority) -
-            priorityArray.indexOf(a.priority)
-          );
-        })
-      );
-    }
-  };
-
-  useEffect(() => {
-    if (sortBy === "priority") {
-      setTasks(
-        [...tasks].sort((a, b) => {
-          return (
-            priorityArray.indexOf(a.priority) -
-            priorityArray.indexOf(b.priority)
-          );
-        })
-      );
-    } else if (sortBy === "priority2") {
-      setTasks(
-        [...tasks].sort((a, b) => {
-          return (
-            priorityArray.indexOf(b.priority) -
-            priorityArray.indexOf(a.priority)
-          );
-        })
-      );
-    }
-  }, [sortBy, tasks]);
-
   return (
     <div className="relative">
       {isCreatingTask && (
@@ -83,7 +37,12 @@ const Page = () => {
         />
       )}
 
-      <SortSelect sortBy={sortBy} setSortBy={setSortBy} sortTasks={sortTasks} />
+      <SortSelect
+        sortBy={sortBy}
+        setSortBy={setSortBy}
+        tasks={tasks}
+        setTasks={setTasks}
+      />
 
       {!isCreatingTask && (
         <CreateTaskBtn setIsCreatingTask={setIsCreatingTask} />
