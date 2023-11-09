@@ -52,8 +52,8 @@ const SortSelect = ({ sortBy, setSortBy, tasks, setTasks }: any) => {
         <option value="">Sort by</option>
         <option value="priorityLow">Priority (Low to High)</option>
         <option value="priorityHigh">Priority (High to Low)</option>
-        <option value="dueDateSoon">Due Date (Due Soon)</option>
-        <option value="dueDateLater">Due Date (Due Later)</option>
+        <option value="dueDateSoon">Due Soon</option>
+        <option value="dueDateLater">Due Later</option>
       </select>
     </>
   );
