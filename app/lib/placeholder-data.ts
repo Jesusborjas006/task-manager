@@ -5,7 +5,7 @@ export const tasksData = [
     body: "Design and code a responsive landing page for a new product launch. Ensure it looks great on desktop and mobile devices.",
     priority: "High",
     dueDate: "2023-11-15",
-    completed: true,
+    // completed: false,
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const tasksData = [
     body: "Add a navigation menu to the website that includes links to various sections of the site. Make it user-friendly and visually appealing.",
     priority: "Medium",
     dueDate: "2023-11-22",
-    completed: false,
+    // completed: false,
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const tasksData = [
     body: "Optimize the website's performance by reducing page load times. Minimize HTTP requests, compress images, and use lazy loading where appropriate.",
     priority: "High",
     dueDate: "2023-11-18",
-    completed: true,
+    // completed: false,
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ export const tasksData = [
     body: "Integrate data from external APIs to display dynamic content on the website. Ensure proper error handling and data fetching techniques.",
     priority: "High",
     dueDate: "2023-11-25",
-    completed: false,
+    // completed: false,
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ export const tasksData = [
     body: "Test the website on multiple web browsers (e.g., Chrome, Firefox, Safari, Edge) to ensure compatibility and a consistent user experience.",
     priority: "Medium",
     dueDate: "2023-11-19",
-    completed: true,
+    // completed: false,
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ export const tasksData = [
     body: "Ensure the website is accessible to all users, including those with disabilities. Implement ARIA roles, alt text for images, and keyboard navigation.",
     priority: "High",
     dueDate: "2023-11-24",
-    completed: false,
+    // completed: false,
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ export const tasksData = [
     body: "Collaborate with designers to improve the user interface and user experience of the website. Implement animations, micro-interactions, and other enhancements.",
     priority: "Medium",
     dueDate: "2023-11-28",
-    completed: true,
+    // completed: false,
   },
   {
     id: 8,
@@ -61,6 +61,6 @@ export const tasksData = [
     body: "Use Git for version control to track code changes, collaborate with team members, and maintain a clean and organized codebase.",
     priority: "Low",
     dueDate: "2023-11-30",
-    completed: false,
+    // completed: false,
   },
 ];

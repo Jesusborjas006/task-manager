@@ -1,8 +1,6 @@
-// "use client";
-
 import Task from "./Task";
 
-const Tasks = ({ tasks, deleteTask }: any) => {
+const Tasks = ({ tasks, deleteTask, isCompleted, setIsCompleted }: any) => {
   const taskElements = tasks.map(
     (task: {
       id: number;
@@ -10,7 +8,6 @@ const Tasks = ({ tasks, deleteTask }: any) => {
       body: string;
       priority: string;
       dueDate: string;
-      completed: boolean;
     }) => (
       <Task
         id={task.id}
@@ -19,7 +16,6 @@ const Tasks = ({ tasks, deleteTask }: any) => {
         body={task.body}
         priority={task.priority}
         dueDate={task.dueDate}
-        completed={task.completed}
         deleteTask={deleteTask}
       />
     )

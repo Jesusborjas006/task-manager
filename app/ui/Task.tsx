@@ -1,10 +1,11 @@
+import { useState } from "react";
+
 type TaskProps = {
   id: number;
   title: string;
   body: string;
   priority: string;
   dueDate: string;
-  completed: boolean;
   deleteTask: any;
 };
 
@@ -14,9 +15,10 @@ const Task = ({
   body,
   priority,
   dueDate,
-  completed,
   deleteTask,
 }: TaskProps) => {
+  const [isCompleted, setIsCompleted] = useState(false);
+
   const getStyling = () => {
     if (priority === "High") {
       return "bg-red-300 text-red-600";
@@ -45,14 +47,17 @@ const Task = ({
         {priority} priority
       </p>
 
-      {!completed ? (
-        <button className="border px-2 py-1 absolute bottom-10 rounded-md text-sm font-medium">
-          Complete Task
-        </button>
-      ) : (
+      {isCompleted ? (
         <p className="absolute bottom-10 bg-green-300 px-2 py-1 rounded-md text-sm font-medium">
           Completed
         </p>
+      ) : (
+        <button
+          className="border px-2 py-1 absolute bottom-10 rounded-md text-sm font-medium"
+          onClick={() => setIsCompleted(true)}
+        >
+          Complete Task
+        </button>
       )}
 
       <p className="absolute bottom-1 font-medium text-[15px] text-gray-700">
