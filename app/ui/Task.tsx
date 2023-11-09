@@ -4,6 +4,7 @@ type TaskProps = {
   body: string;
   priority: string;
   dueDate: string;
+  completed: boolean;
   deleteTask: any;
 };
 
@@ -13,6 +14,7 @@ const Task = ({
   body,
   priority,
   dueDate,
+  completed,
   deleteTask,
 }: TaskProps) => {
   const getStyling = () => {
@@ -36,12 +38,23 @@ const Task = ({
           X
         </p>
       </div>
-      <p className=" text-gray-700 pb-10">{body}</p>
+      <p className=" text-gray-700 pb-20">{body}</p>
       <p
         className={`absolute right-[-1px] bottom-[-1px] font-semibold rounded-xl rounded-tr-none rounded-bl-none py-1 px-2 ${getStyling()} text-sm`}
       >
         {priority} priority
       </p>
+
+      {!completed ? (
+        <button className="border px-2 py-1 absolute bottom-10 rounded-md text-sm font-medium">
+          Complete Task
+        </button>
+      ) : (
+        <p className="absolute bottom-10 bg-green-300 px-2 py-1 rounded-md text-sm font-medium">
+          Completed
+        </p>
+      )}
+
       <p className="absolute bottom-1 font-medium text-[15px] text-gray-700">
         <span className="">Due:</span> {dueDate}
       </p>

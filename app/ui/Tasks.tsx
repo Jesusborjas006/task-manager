@@ -10,6 +10,7 @@ const Tasks = ({ tasks, deleteTask }: any) => {
       body: string;
       priority: string;
       dueDate: string;
+      completed: boolean;
     }) => (
       <Task
         id={task.id}
@@ -18,6 +19,7 @@ const Tasks = ({ tasks, deleteTask }: any) => {
         body={task.body}
         priority={task.priority}
         dueDate={task.dueDate}
+        completed={task.completed}
         deleteTask={deleteTask}
       />
     )
