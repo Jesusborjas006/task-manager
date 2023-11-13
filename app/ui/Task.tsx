@@ -48,9 +48,17 @@ const Task = ({
       </p>
 
       {isCompleted ? (
-        <p className="absolute bottom-10 bg-green-300 px-2 py-1 rounded-md text-sm font-medium">
-          Completed
-        </p>
+        <div className="flex absolute bottom-10 space-x-2">
+          <p className=" bg-green-300 px-2 py-1 rounded-md text-sm font-medium">
+            Completed
+          </p>
+          <button
+            className="border px-2 py-1 rounded-md text-sm font-medium hover:bg-red-400 "
+            onClick={() => setIsCompleted(false)}
+          >
+            Undo
+          </button>
+        </div>
       ) : (
         <button
           className="border px-2 py-1 absolute bottom-10 rounded-md text-sm font-medium"
