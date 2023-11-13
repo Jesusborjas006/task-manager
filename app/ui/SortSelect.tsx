@@ -44,18 +44,16 @@ const SortSelect = ({ sortBy, setSortBy, tasks, setTasks }: any) => {
   }, [sortBy]);
 
   return (
-    <>
-      <select
-        className="border mx-8 rounded-md py-1"
-        onChange={(e) => setSortBy(e.target.value)}
-      >
-        <option value="">Sort by</option>
-        <option value="priorityLow">Priority (Low to High)</option>
-        <option value="priorityHigh">Priority (High to Low)</option>
-        <option value="dueDateSoon">Due Soon</option>
-        <option value="dueDateLater">Due Later</option>
-      </select>
-    </>
+    <select
+      className="border rounded-md py-1"
+      onChange={(e) => setSortBy(e.target.value)}
+    >
+      <option value="">Sort by</option>
+      <option value="priorityLow">Priority (Low to High)</option>
+      <option value="priorityHigh">Priority (High to Low)</option>
+      <option value="dueDateSoon">Due Soon</option>
+      <option value="dueDateLater">Due Later</option>
+    </select>
   );
 };
 

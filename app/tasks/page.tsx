@@ -1,17 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import CreateTaskBtn from "../ui/CreateTaskBtn";
 import FormModal from "../ui/FormModal";
 import Tasks from "../ui/Tasks";
 import { tasksData } from "../lib/placeholder-data";
 import NoTasksMessage from "../ui/NoTasksMessage";
-import SortSelect from "../ui/SortSelect";
+import TaskForms from "../ui/TaskForms";
 
 const Page = () => {
   const [tasks, setTasks] = useState(tasksData);
   const [isCreatingTask, setIsCreatingTask] = useState(false);
   const [sortBy, setSortBy] = useState("");
+  const [radioValue, setRadioValue] = useState("all");
 
   const addNewTask = (newTask: {
     id: number;
@@ -28,6 +28,10 @@ const Page = () => {
     setTasks(filteredTasks);
   };
 
+  // const filterTasks = () => {
+  //   const filteredTasks = tasks.filter((task) =)
+  // }
+
   return (
     <div className="relative">
       {isCreatingTask && (
@@ -37,16 +41,16 @@ const Page = () => {
         />
       )}
 
-      <SortSelect
+      <TaskForms
         sortBy={sortBy}
         setSortBy={setSortBy}
         tasks={tasks}
         setTasks={setTasks}
+        isCreatingTask={isCreatingTask}
+        setIsCreatingTask={setIsCreatingTask}
+        radioValue={radioValue}
+        setRadioValue={setRadioValue}
       />
-
-      {!isCreatingTask && (
-        <CreateTaskBtn setIsCreatingTask={setIsCreatingTask} />
-      )}
 
       {tasks.length ? (
         <Tasks tasks={tasks} deleteTask={deleteTask} />
