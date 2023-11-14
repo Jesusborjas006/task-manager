@@ -5,7 +5,6 @@ import CreateTaskBtn from "../ui/CreateTaskBtn";
 type TaskFormsProp = {
   sortBy: any;
   setSortBy: any;
-  isCreatingTask: any;
   setIsCreatingTask: any;
   radioValue: any;
   setRadioValue: any;
@@ -17,7 +16,6 @@ type TaskFormsProp = {
 const TaskForms = ({
   sortBy,
   setSortBy,
-  isCreatingTask,
   setIsCreatingTask,
   radioValue,
   setRadioValue,
@@ -40,12 +38,8 @@ const TaskForms = ({
         displayFilteredTasks={displayFilteredTasks}
         setSortBy={setSortBy}
       />
-      {!isCreatingTask && (
-        <CreateTaskBtn
-          setIsCreatingTask={setIsCreatingTask}
-          setSortBy={setSortBy}
-        />
-      )}
+
+      <CreateTaskBtn setIsCreatingTask={setIsCreatingTask} />
     </div>
   );
 };

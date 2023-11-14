@@ -2,13 +2,9 @@ import { Dispatch, SetStateAction } from "react";
 
 type CreateTaskBtnProps = {
   setIsCreatingTask: Dispatch<SetStateAction<boolean>>;
-  setSortBy: any;
 };
 
-const CreateTaskBtn = ({
-  setIsCreatingTask,
-  setSortBy,
-}: CreateTaskBtnProps) => {
+const CreateTaskBtn = ({ setIsCreatingTask }: CreateTaskBtnProps) => {
   return (
     <button
       className="bg-blue-500 text-white font-semibold py-2 px-3 rounded-lg "

@@ -60,7 +60,6 @@ const Page = () => {
       <TaskForms
         sortBy={sortBy}
         setSortBy={setSortBy}
-        isCreatingTask={isCreatingTask}
         setIsCreatingTask={setIsCreatingTask}
         radioValue={radioValue}
         setRadioValue={setRadioValue}
