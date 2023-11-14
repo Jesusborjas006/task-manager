@@ -28,8 +28,8 @@ const Page = () => {
   };
 
   const deleteTask = (id: number) => {
-    const filteredTasks = tasks.filter((task) => task.id !== id);
-    setTasks(filteredTasks);
+    const filteredTasks = filteredByStatus.filter((task) => task.id !== id);
+    setFilteredByStatus(filteredTasks);
   };
 
   const displayFilteredTasks = () => {
@@ -39,7 +39,9 @@ const Page = () => {
       const filteredTasks = tasks.filter((task) => task.completed === true);
       setFilteredByStatus(filteredTasks);
     } else if (radioValue === "not completed") {
-      const filteredTasks = tasks.filter((task) => task.completed === false);
+      const filteredTasks = filteredByStatus.filter(
+        (task) => task.completed === false
+      );
       setFilteredByStatus(filteredTasks);
     }
   };
