@@ -14,9 +14,6 @@ const Page = () => {
   const [radioValue, setRadioValue] = useState("all");
   const [filteredByStatus, setFilteredByStatus] = useState(tasks);
 
-  // console.log("Tasks: ", tasks);
-  // console.log("Filtered Tasks: ", filteredByStatus);
-
   const addNewTask = (newTask: {
     id: number;
     title: string;
@@ -30,8 +27,26 @@ const Page = () => {
 
   const deleteTask = (id: number) => {
     const filteredTasks = tasks.filter((task) => task.id !== id);
-    setTasks(filteredTasks);
-    setFilteredByStatus(filteredTasks);
+    const completedTasks = filteredTasks.filter(
+      (task) => task.completed === true
+    );
+    const notCompletedTasks = filteredTasks.filter(
+      (task) => task.completed === false
+    );
+
+    if (radioValue === "completed" && completedTasks.length === 0) {
+      setTasks(filteredTasks);
+      setFilteredByStatus([]);
+    } else if (
+      radioValue === "not completed" &&
+      notCompletedTasks.length === 0
+    ) {
+      setTasks(filteredTasks);
+      setFilteredByStatus([]);
+    } else {
+      setTasks(filteredTasks);
+      setFilteredByStatus(filteredTasks);
+    }
   };
 
   const displayFilteredTasks = () => {
