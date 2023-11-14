@@ -1,7 +1,17 @@
-const RadioForm = ({ radioValue, setRadioValue }: any) => {
+import { useEffect } from "react";
+
+const RadioForm = ({
+  radioValue,
+  setRadioValue,
+  displayFilteredTasks,
+}: any) => {
   const handleChange = (e: any) => {
     setRadioValue(e.target.value);
   };
+
+  useEffect(() => {
+    displayFilteredTasks();
+  }, [radioValue]);
 
   return (
     <form className="rounded-md py-1 flex space-x-6">

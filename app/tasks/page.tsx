@@ -12,6 +12,10 @@ const Page = () => {
   const [isCreatingTask, setIsCreatingTask] = useState(false);
   const [sortBy, setSortBy] = useState("");
   const [radioValue, setRadioValue] = useState("all");
+  const [filteredByStatus, setFilteredByStatus] = useState(tasks);
+
+  console.log("Tasks: ", tasks);
+  console.log("Filtered Tasks: ", filteredByStatus);
 
   const addNewTask = (newTask: {
     id: number;
@@ -28,9 +32,17 @@ const Page = () => {
     setTasks(filteredTasks);
   };
 
-  // const filterTasks = () => {
-  //   const filteredTasks = tasks.filter((task) =)
-  // }
+  const displayFilteredTasks = () => {
+    if (radioValue === "all") {
+      setFilteredByStatus(tasks);
+    } else if (radioValue === "completed") {
+      const filteredTasks = tasks.filter((task) => task.completed === true);
+      setFilteredByStatus(filteredTasks);
+    } else if (radioValue === "not completed") {
+      const filteredTasks = tasks.filter((task) => task.completed === false);
+      setFilteredByStatus(filteredTasks);
+    }
+  };
 
   return (
     <div className="relative">
@@ -50,10 +62,11 @@ const Page = () => {
         setIsCreatingTask={setIsCreatingTask}
         radioValue={radioValue}
         setRadioValue={setRadioValue}
+        displayFilteredTasks={displayFilteredTasks}
       />
 
-      {tasks.length ? (
-        <Tasks tasks={tasks} deleteTask={deleteTask} />
+      {filteredByStatus.length ? (
+        <Tasks filteredByStatus={filteredByStatus} deleteTask={deleteTask} />
       ) : (
         <NoTasksMessage />
       )}

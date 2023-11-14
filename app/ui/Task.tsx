@@ -6,6 +6,7 @@ type TaskProps = {
   body: string;
   priority: string;
   dueDate: string;
+  completed: boolean;
   deleteTask: any;
 };
 
@@ -15,10 +16,9 @@ const Task = ({
   body,
   priority,
   dueDate,
+  completed,
   deleteTask,
 }: TaskProps) => {
-  const [isCompleted, setIsCompleted] = useState(false);
-
   const getStyling = () => {
     if (priority === "High") {
       return "bg-red-300 text-red-600";
@@ -47,23 +47,17 @@ const Task = ({
         {priority} priority
       </p>
 
-      {isCompleted ? (
+      {completed ? (
         <div className="flex absolute bottom-10 space-x-2">
           <p className=" bg-green-300 px-2 py-1 rounded-md text-sm font-medium">
             Completed
           </p>
-          <button
-            className="border px-2 py-1 rounded-md text-sm font-medium hover:bg-red-400 "
-            onClick={() => setIsCompleted(false)}
-          >
+          <button className="border px-2 py-1 rounded-md text-sm font-medium hover:bg-red-400 ">
             Undo
           </button>
         </div>
       ) : (
-        <button
-          className="border px-2 py-1 absolute bottom-10 rounded-md text-sm font-medium"
-          onClick={() => setIsCompleted(true)}
-        >
+        <button className="border px-2 py-1 absolute bottom-10 rounded-md text-sm font-medium">
           Complete Task
         </button>
       )}

@@ -11,6 +11,7 @@ type TaskFormsProp = {
   setIsCreatingTask: any;
   radioValue: any;
   setRadioValue: any;
+  displayFilteredTasks: any;
 };
 
 const TaskForms = ({
@@ -22,6 +23,7 @@ const TaskForms = ({
   setIsCreatingTask,
   radioValue,
   setRadioValue,
+  displayFilteredTasks,
 }: TaskFormsProp) => {
   return (
     <div className="flex justify-between mx-8">
@@ -32,7 +34,12 @@ const TaskForms = ({
         setTasks={setTasks}
       />
 
-      <RadioForm radioValue={radioValue} setRadioValue={setRadioValue} />
+      <RadioForm
+        radioValue={radioValue}
+        setRadioValue={setRadioValue}
+        tasks={tasks}
+        displayFilteredTasks={displayFilteredTasks}
+      />
       {!isCreatingTask && (
         <CreateTaskBtn setIsCreatingTask={setIsCreatingTask} />
       )}

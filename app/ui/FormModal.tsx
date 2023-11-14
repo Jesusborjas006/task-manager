@@ -8,6 +8,7 @@ const FormModal = ({ addNewTask, setIsCreatingTask }: any) => {
     body: "",
     priority: "Low",
     dueDate: "",
+    completed: false,
   });
   const [inputsFilled, setInputsFilled] = useState(true);
 
@@ -31,6 +32,7 @@ const FormModal = ({ addNewTask, setIsCreatingTask }: any) => {
         body: form.body,
         priority: form.priority,
         dueDate: form.dueDate,
+        completed: false,
       };
 
       addNewTask(newTask);
@@ -42,7 +44,13 @@ const FormModal = ({ addNewTask, setIsCreatingTask }: any) => {
   };
 
   const resetInputs = () => {
-    setForm({ title: "", body: "", priority: "Low", dueDate: "" });
+    setForm({
+      title: "",
+      body: "",
+      priority: "Low",
+      dueDate: "",
+      completed: false,
+    });
   };
 
   return (
