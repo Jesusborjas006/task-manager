@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type TaskProps = {
   id: number;
@@ -19,6 +19,8 @@ const Task = ({
   completed,
   deleteTask,
 }: TaskProps) => {
+  const [completionStatus, setCompletionStatus] = useState(completed);
+
   const getStyling = () => {
     if (priority === "High") {
       return "bg-red-300 text-red-600";
@@ -47,7 +49,7 @@ const Task = ({
         {priority} priority
       </p>
 
-      {completed ? (
+      {completionStatus ? (
         <div className="flex absolute bottom-10 space-x-2">
           <p className=" bg-green-300 px-2 py-1 rounded-md text-sm font-medium">
             Completed

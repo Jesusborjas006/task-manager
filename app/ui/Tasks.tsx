@@ -1,6 +1,6 @@
 import Task from "./Task";
 
-const Tasks = ({ filteredByStatus, deleteTask, tasks }: any) => {
+const Tasks = ({ filteredByStatus, deleteTask }: any) => {
   const taskElements = filteredByStatus.map(
     (task: {
       id: number;
