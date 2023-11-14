@@ -16,7 +16,7 @@ const RadioForm = ({
   }, [radioValue]);
 
   return (
-    <form className="rounded-md py-1 flex space-x-6">
+    <form className="rounded-md py-1 space-x-6 hidden md:flex">
       <div>
         <input
           type="radio"
