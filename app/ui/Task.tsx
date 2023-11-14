@@ -1,9 +1,12 @@
+import { useEffect, useState } from "react";
+
 type TaskProps = {
   id: number;
   title: string;
   body: string;
   priority: string;
   dueDate: string;
+  completed: boolean;
   deleteTask: any;
 };
 
@@ -13,8 +16,11 @@ const Task = ({
   body,
   priority,
   dueDate,
+  completed,
   deleteTask,
 }: TaskProps) => {
+  const [completionStatus, setCompletionStatus] = useState(completed);
+
   const getStyling = () => {
     if (priority === "High") {
       return "bg-red-300 text-red-600";
@@ -36,12 +42,28 @@ const Task = ({
           X
         </p>
       </div>
-      <p className=" text-gray-700 pb-10">{body}</p>
+      <p className=" text-gray-700 pb-20">{body}</p>
       <p
         className={`absolute right-[-1px] bottom-[-1px] font-semibold rounded-xl rounded-tr-none rounded-bl-none py-1 px-2 ${getStyling()} text-sm`}
       >
         {priority} priority
       </p>
+
+      {completionStatus ? (
+        <div className="flex absolute bottom-10 space-x-2">
+          <p className=" bg-green-300 px-2 py-1 rounded-md text-sm font-medium">
+            Completed
+          </p>
+          <button className="border px-2 py-1 rounded-md text-sm font-medium hover:bg-red-400 ">
+            Undo
+          </button>
+        </div>
+      ) : (
+        <button className="border px-2 py-1 absolute bottom-10 rounded-md text-sm font-medium">
+          Complete Task
+        </button>
+      )}
+
       <p className="absolute bottom-1 font-medium text-[15px] text-gray-700">
         <span className="">Due:</span> {dueDate}
       </p>

@@ -1,15 +1,14 @@
-// "use client";
-
 import Task from "./Task";
 
-const Tasks = ({ tasks, deleteTask }: any) => {
-  const taskElements = tasks.map(
+const Tasks = ({ filteredByStatus, deleteTask }: any) => {
+  const taskElements = filteredByStatus.map(
     (task: {
       id: number;
       title: string;
       body: string;
       priority: string;
       dueDate: string;
+      completed: boolean;
     }) => (
       <Task
         id={task.id}
@@ -18,6 +17,7 @@ const Tasks = ({ tasks, deleteTask }: any) => {
         body={task.body}
         priority={task.priority}
         dueDate={task.dueDate}
+        completed={task.completed}
         deleteTask={deleteTask}
       />
     )
