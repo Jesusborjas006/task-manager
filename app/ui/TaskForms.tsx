@@ -5,39 +5,38 @@ import CreateTaskBtn from "../ui/CreateTaskBtn";
 type TaskFormsProp = {
   sortBy: any;
   setSortBy: any;
-  tasks: any;
-  setTasks: any;
   isCreatingTask: any;
   setIsCreatingTask: any;
   radioValue: any;
   setRadioValue: any;
   displayFilteredTasks: any;
+  filteredByStatus: any;
+  setFilteredByStatus: any;
 };
 
 const TaskForms = ({
   sortBy,
   setSortBy,
-  tasks,
-  setTasks,
   isCreatingTask,
   setIsCreatingTask,
   radioValue,
   setRadioValue,
   displayFilteredTasks,
+  filteredByStatus,
+  setFilteredByStatus,
 }: TaskFormsProp) => {
   return (
     <div className="flex justify-between mx-8">
       <SortSelect
         sortBy={sortBy}
         setSortBy={setSortBy}
-        tasks={tasks}
-        setTasks={setTasks}
+        filteredByStatus={filteredByStatus}
+        setFilteredByStatus={setFilteredByStatus}
       />
 
       <RadioForm
         radioValue={radioValue}
         setRadioValue={setRadioValue}
-        tasks={tasks}
         displayFilteredTasks={displayFilteredTasks}
       />
       {!isCreatingTask && (

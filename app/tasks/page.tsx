@@ -25,10 +25,12 @@ const Page = () => {
     dueDate: string;
   }) => {
     setTasks([...tasks, newTask]);
+    setFilteredByStatus([...tasks, newTask]);
   };
 
   const deleteTask = (id: number) => {
-    const filteredTasks = filteredByStatus.filter((task) => task.id !== id);
+    const filteredTasks = tasks.filter((task) => task.id !== id);
+    setTasks(filteredTasks);
     setFilteredByStatus(filteredTasks);
   };
 
@@ -39,9 +41,7 @@ const Page = () => {
       const filteredTasks = tasks.filter((task) => task.completed === true);
       setFilteredByStatus(filteredTasks);
     } else if (radioValue === "not completed") {
-      const filteredTasks = filteredByStatus.filter(
-        (task) => task.completed === false
-      );
+      const filteredTasks = tasks.filter((task) => task.completed === false);
       setFilteredByStatus(filteredTasks);
     }
   };
@@ -58,17 +58,21 @@ const Page = () => {
       <TaskForms
         sortBy={sortBy}
         setSortBy={setSortBy}
-        tasks={tasks}
-        setTasks={setTasks}
         isCreatingTask={isCreatingTask}
         setIsCreatingTask={setIsCreatingTask}
         radioValue={radioValue}
         setRadioValue={setRadioValue}
         displayFilteredTasks={displayFilteredTasks}
+        filteredByStatus={filteredByStatus}
+        setFilteredByStatus={setFilteredByStatus}
       />
 
       {filteredByStatus.length ? (
-        <Tasks filteredByStatus={filteredByStatus} deleteTask={deleteTask} />
+        <Tasks
+          tasks={tasks}
+          filteredByStatus={filteredByStatus}
+          deleteTask={deleteTask}
+        />
       ) : (
         <NoTasksMessage />
       )}

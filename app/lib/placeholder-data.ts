@@ -7,14 +7,14 @@ export const tasksData = [
     dueDate: "2023-11-15",
     completed: true,
   },
-  {
-    id: 2,
-    title: "Implement a Navigation Menu",
-    body: "Add a navigation menu to the website that includes links to various sections of the site. Make it user-friendly and visually appealing.",
-    priority: "Medium",
-    dueDate: "2023-11-22",
-    completed: false,
-  },
+  // {
+  //   id: 2,
+  //   title: "Implement a Navigation Menu",
+  //   body: "Add a navigation menu to the website that includes links to various sections of the site. Make it user-friendly and visually appealing.",
+  //   priority: "Medium",
+  //   dueDate: "2023-11-22",
+  //   completed: false,
+  // },
   // {
   //   id: 3,
   //   title: "Optimize Page Load Times",
