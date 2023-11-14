@@ -4,6 +4,7 @@ const RadioForm = ({
   radioValue,
   setRadioValue,
   displayFilteredTasks,
+  setSortBy,
 }: any) => {
   const handleChange = (e: any) => {
     setRadioValue(e.target.value);
@@ -11,6 +12,7 @@ const RadioForm = ({
 
   useEffect(() => {
     displayFilteredTasks();
+    setSortBy("");
   }, [radioValue]);
 
   return (

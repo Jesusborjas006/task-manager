@@ -38,6 +38,7 @@ const TaskForms = ({
         radioValue={radioValue}
         setRadioValue={setRadioValue}
         displayFilteredTasks={displayFilteredTasks}
+        setSortBy={setSortBy}
       />
       {!isCreatingTask && (
         <CreateTaskBtn
