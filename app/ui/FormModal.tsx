@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const FormModal = ({ addNewTask, setIsCreatingTask }: any) => {
+const FormModal = ({ addNewTask, setIsCreatingTask, setRadioValue }: any) => {
   const [form, setForm] = useState({
     title: "",
     body: "",
@@ -51,6 +51,7 @@ const FormModal = ({ addNewTask, setIsCreatingTask }: any) => {
       dueDate: "",
       completed: false,
     });
+    setRadioValue("all");
   };
 
   return (

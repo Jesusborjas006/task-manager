@@ -52,6 +52,7 @@ const Page = () => {
         <FormModal
           addNewTask={addNewTask}
           setIsCreatingTask={setIsCreatingTask}
+          setRadioValue={setRadioValue}
         />
       )}
 
