@@ -2,7 +2,12 @@
 
 import { useState } from "react";
 
-const FormModal = ({ addNewTask, setIsCreatingTask, setRadioValue }: any) => {
+const FormModal = ({
+  addNewTask,
+  setIsCreatingTask,
+  setRadioValue,
+  setSortBy,
+}: any) => {
   const [form, setForm] = useState({
     title: "",
     body: "",
@@ -52,6 +57,7 @@ const FormModal = ({ addNewTask, setIsCreatingTask, setRadioValue }: any) => {
       completed: false,
     });
     setRadioValue("all");
+    setSortBy("");
   };
 
   return (

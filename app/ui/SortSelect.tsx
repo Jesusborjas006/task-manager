@@ -44,16 +44,19 @@ const SortSelect = ({
     }
   };
 
+  const handleChange = (e: any) => {
+    setSortBy(e.target.value);
+  };
+
   useEffect(() => {
     sortArray();
   }, [sortBy]);
 
   return (
-    <select
-      className="border rounded-md py-1"
-      onChange={(e) => setSortBy(e.target.value)}
-    >
-      <option value="">Sort by</option>
+    <select className="border rounded-md py-1" onChange={handleChange}>
+      <option value="" selected={sortBy === ""} disabled>
+        Sort by
+      </option>
       <option value="priorityLow">Priority (Low to High)</option>
       <option value="priorityHigh">Priority (High to Low)</option>
       <option value="dueDateSoon">Due Soon</option>

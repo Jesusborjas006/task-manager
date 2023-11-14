@@ -40,7 +40,10 @@ const TaskForms = ({
         displayFilteredTasks={displayFilteredTasks}
       />
       {!isCreatingTask && (
-        <CreateTaskBtn setIsCreatingTask={setIsCreatingTask} />
+        <CreateTaskBtn
+          setIsCreatingTask={setIsCreatingTask}
+          setSortBy={setSortBy}
+        />
       )}
     </div>
   );

@@ -14,8 +14,8 @@ const Page = () => {
   const [radioValue, setRadioValue] = useState("all");
   const [filteredByStatus, setFilteredByStatus] = useState(tasks);
 
-  console.log("Tasks: ", tasks);
-  console.log("Filtered Tasks: ", filteredByStatus);
+  // console.log("Tasks: ", tasks);
+  // console.log("Filtered Tasks: ", filteredByStatus);
 
   const addNewTask = (newTask: {
     id: number;
@@ -53,6 +53,7 @@ const Page = () => {
           addNewTask={addNewTask}
           setIsCreatingTask={setIsCreatingTask}
           setRadioValue={setRadioValue}
+          setSortBy={setSortBy}
         />
       )}
 
